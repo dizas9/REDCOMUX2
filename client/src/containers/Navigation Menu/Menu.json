@@ -1,0 +1,16 @@
+{
+  "Brands": [
+    { "id": 1, "name": "Gucchi", "link": "#" },
+    { "id": 2, "name": "Polo", "link": "#" },
+    { "id": 3, "name": "Ralph Louren", "link": "#" },
+    { "id": 4, "name": "Nike", "link": "#" },
+    { "id": 5, "name": "calvin klein", "link": "#" },
+    { "id": 6, "name": "Tommy Hilfiger", "link": "#" },
+    { "id": 7, "name": "Apple", "link": "#" },
+    { "id": 8, "name": "Converse", "link": "#" }
+  ],
+  "Accounts": [
+    { "id": 1, "name": "Register", "link": "#" },
+    { "id": 2, "name": "Login", "link": "#" }
+  ]
+}
