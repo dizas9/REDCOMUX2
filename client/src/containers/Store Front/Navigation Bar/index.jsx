@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardControlKeyIcon from "@mui/icons-material/KeyboardControlKey";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../../components/Website/Logo/index";
+import Logo from "../../../components/Website/Logo/index";
 import { AccountOption, BrandList } from "../Navigation Menu/index";
 import DrawerIcon from "../Drawer/index";
 
