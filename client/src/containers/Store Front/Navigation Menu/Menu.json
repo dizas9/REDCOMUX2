@@ -10,7 +10,7 @@
     { "id": 8, "name": "Converse", "link": "#" }
   ],
   "Accounts": [
-    { "id": 1, "name": "Register", "link": "#" },
+    { "id": 1, "name": "Register", "link": "/page/Register" },
     { "id": 2, "name": "Login", "link": "#" }
   ]
 }

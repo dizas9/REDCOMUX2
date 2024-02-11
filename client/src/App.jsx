@@ -4,12 +4,11 @@ import "./App.css";
 import Application from "./containers/Store Front/Application/index";
 
 function App() {
-
   return (
     <>
-    <BrowserRouter>
-    <Application/>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Application />
+      </BrowserRouter>
     </>
   );
 }

@@ -8,7 +8,6 @@ export default function Logo() {
           display: "flex",
           flexDirection: "row",
           alignItems: "baseline",
-          paddingLeft: { xs: "20vw", lg: "2rem" },
         }}
       >
         <Typography

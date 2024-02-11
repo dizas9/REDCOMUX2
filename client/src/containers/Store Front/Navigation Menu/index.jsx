@@ -1,6 +1,7 @@
 import React from "react";
 import SubMenuList from "./Menu.json";
 import { Typography, Box, Button, Toolbar } from "@mui/material";
+import { Link, NavLink } from "react-router-dom";
 
 export const BrandList = ({ handleMenuItemClick }) => {
   const BrandList = SubMenuList.Brands;
@@ -77,7 +78,7 @@ export const AccountOption = () => {
           >
             {SubMenuList.Accounts.map((item) => (
               <Button variant="text" color="primary" key={item.id}>
-                {item.name}
+                <NavLink to={item.link}>{item.name}</NavLink>
               </Button>
             ))}
           </Toolbar>
