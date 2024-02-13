@@ -1,4 +1,7 @@
 import React from "react";
+
+import actions from "../../../actions";
+
 import {
   Button,
   TextField,
@@ -11,12 +14,35 @@ import {
   Container,
 } from "@mui/material";
 
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { useNavigate } from "react-router-dom";
+
+import { useSelector, useDispatch } from "react-redux";
+
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import Logo from "../../../components/Website/Logo";
 
 export default function UserRegistration() {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const authenticated = useSelector(
+    (state) => state.authentication.authenticated
+  );
+  const signupFormData = useSelector((state) => state.signup.signupFormData);
+  const isSubmitting = useSelector((state) => state.signup.isSubmitting);
+
+  if (authenticated) {
+    navigate("/");
+  }
+
+  // Handle Form Submittion
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(actions.signUp());
+  };
+
   return (
     <>
       <Box
@@ -25,6 +51,7 @@ export default function UserRegistration() {
           flexDirection: { lg: "row", xs: "column-reverse" },
           alignItems: "center",
         }}
+        onSubmit={handleSubmit}
       >
         <Container component="main" maxWidth="xs">
           <Box
@@ -56,12 +83,16 @@ export default function UserRegistration() {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     autoComplete="given-name"
-                    name="firstName"
                     required
                     fullWidth
                     id="firstName"
                     label="First Name"
                     autoFocus
+                    name={"firstName"}
+                    value={signupFormData.firstName}
+                    onChange={(name, value) => {
+                      dispatch(actions.signupChanges(name, value));
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -70,8 +101,12 @@ export default function UserRegistration() {
                     fullWidth
                     id="lastName"
                     label="Last Name"
-                    name="lastName"
                     autoComplete="family-name"
+                    name={"lastName"}
+                    value={signupFormData.lastName}
+                    onChange={(name, value) => {
+                      dispatch(actions.signupChanges(name, value));
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -80,19 +115,27 @@ export default function UserRegistration() {
                     fullWidth
                     id="email"
                     label="Email Address"
-                    name="email"
                     autoComplete="email"
+                    name={"email"}
+                    value={signupFormData.email}
+                    onChange={(name, value) => {
+                      dispatch(actions.signupChanges(name, value));
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
                     required
                     fullWidth
-                    name="password"
                     label="Password"
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    name={"password"}
+                    value={signupFormData.password}
+                    onChange={(name, value) => {
+                      dispatch(actions.signupChanges(name, value));
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -110,6 +153,7 @@ export default function UserRegistration() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                disabled={isSubmitting}
               >
                 Sign Up
               </Button>
