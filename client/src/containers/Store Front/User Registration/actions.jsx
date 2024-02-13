@@ -13,9 +13,13 @@ import { API_URL } from "../../../constants/index";
 
 // Action Creators [signupChanges , signUp ]
 
-export const signupChanges = (name, value) => {
+export const signupChange = (name, value) => {
   let formData = {};
   formData[name] = value;
+
+  console.log("Action Dispatch");
+  console.log("name", name);
+  console.log("value", value);
 
   return {
     type: SIGNUP_CHANGE,
@@ -33,7 +37,7 @@ export const signUp = () => {
 
       const user = { ...newUser };
 
-      const response = await axios.post(`${API_URL}/auth/register`, user);
+      const response = await axios.post(`${API_URL}/auth/register`, user); // change /auth/
 
       localStorage.setItem("token", response.data.token);
 

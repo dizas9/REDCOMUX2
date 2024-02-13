@@ -40,8 +40,10 @@ export default function UserRegistration() {
   // Handle Form Submittion
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(actions.signUp());
+    dispatch(actions(dispatch).signUp());
   };
+
+  console.log("Action:", actions(dispatch).signupChange);
 
   return (
     <>
@@ -90,8 +92,13 @@ export default function UserRegistration() {
                     autoFocus
                     name={"firstName"}
                     value={signupFormData.firstName}
-                    onChange={(name, value) => {
-                      dispatch(actions.signupChanges(name, value));
+                    onChange={(e) => {
+                      dispatch(
+                        actions(dispatch).signupChange(
+                          e.target.name,
+                          e.target.value
+                        )
+                      );
                     }}
                   />
                 </Grid>
@@ -104,8 +111,13 @@ export default function UserRegistration() {
                     autoComplete="family-name"
                     name={"lastName"}
                     value={signupFormData.lastName}
-                    onChange={(name, value) => {
-                      dispatch(actions.signupChanges(name, value));
+                    onChange={(e) => {
+                      dispatch(
+                        actions(dispatch).signupChange(
+                          e.target.name,
+                          e.target.value
+                        )
+                      );
                     }}
                   />
                 </Grid>
@@ -118,8 +130,13 @@ export default function UserRegistration() {
                     autoComplete="email"
                     name={"email"}
                     value={signupFormData.email}
-                    onChange={(name, value) => {
-                      dispatch(actions.signupChanges(name, value));
+                    onChange={(e) => {
+                      dispatch(
+                        actions(dispatch).signupChange(
+                          e.target.name,
+                          e.target.value
+                        )
+                      );
                     }}
                   />
                 </Grid>
@@ -133,8 +150,13 @@ export default function UserRegistration() {
                     autoComplete="new-password"
                     name={"password"}
                     value={signupFormData.password}
-                    onChange={(name, value) => {
-                      dispatch(actions.signupChanges(name, value));
+                    onChange={(e) => {
+                      dispatch(
+                        actions(dispatch).signupChange(
+                          e.target.name,
+                          e.target.value
+                        )
+                      );
                     }}
                   />
                 </Grid>
